@@ -1,0 +1,77 @@
+{
+  "info": {
+    "name": "AEOLUS API",
+    "description": "Manual-test collection for the AEOLUS backend. Select the 'AEOLUS local' environment. Each build step adds a folder.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [{ "key": "token", "value": "{{accessToken}}", "type": "string" }]
+  },
+  "item": [
+    {
+      "name": "00 setup",
+      "item": [
+        {
+          "name": "Health",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "const body = pm.response.json();",
+                  "pm.test('body has status, db, redis, version', () => {",
+                  "  pm.expect(body).to.have.keys('status', 'db', 'redis', 'version');",
+                  "});",
+                  "pm.test('all dependencies ok -> 200', () => {",
+                  "  pm.expect(body.db).to.eql('ok');",
+                  "  pm.expect(body.redis).to.eql('ok');",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('has X-Request-ID header', () => pm.response.to.have.header('X-Request-ID'));"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/health", "host": ["{{baseUrl}}"], "path": ["health"] },
+            "description": "No auth. 200 + status 'ok' when Postgres/PostGIS and Redis are reachable; 503 + status 'degraded' otherwise."
+          }
+        },
+        {
+          "name": "Unknown route (error shape)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('404', () => pm.response.to.have.status(404));",
+                  "pm.test('unified error shape', () => {",
+                  "  const e = pm.response.json().error;",
+                  "  pm.expect(e).to.have.keys('code', 'message', 'details');",
+                  "  pm.expect(e.code).to.eql('NOT_FOUND');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/does-not-exist",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "does-not-exist"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
