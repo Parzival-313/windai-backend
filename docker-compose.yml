@@ -1,0 +1,76 @@
+# AEOLUS local stack. Usage (from the repo root, Docker Desktop running):
+#   docker compose up --build        # start db, redis, api, worker
+#   docker compose run --rm api pytest
+#   docker compose down               # stop (add -v to also delete the DB volume)
+name: aeolus
+
+x-app: &app
+  build: .
+  image: aeolus-backend:dev
+  env_file: .env
+  environment:
+    # Inside the compose network, services reach each other by service name.
+    DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-aeolus}:${POSTGRES_PASSWORD:-aeolus}@db:5432/${POSTGRES_DB:-aeolus}
+    REDIS_URL: redis://redis:6379/0
+    DATA_DIR: /data/raw
+    CACHE_DIR: /data/cache
+    MODEL_DIR: /data/models
+    ARTIFACT_DIR: /data/artifacts
+    WATCHFILES_FORCE_POLLING: "true" # file-change detection on Windows bind mounts
+  volumes:
+    - .:/app # live code reload in development
+    - ${HOST_DATA_DIR:-./data}:/data/raw:ro # your local datasets, read-only
+    - aeolus_cache:/data/cache
+    - aeolus_models:/data/models
+    - aeolus_artifacts:/data/artifacts
+  depends_on:
+    db:
+      condition: service_healthy
+    redis:
+      condition: service_healthy
+
+services:
+  db:
+    image: postgis/postgis:16-3.5
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-aeolus}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-aeolus}
+      POSTGRES_DB: ${POSTGRES_DB:-aeolus}
+    ports:
+      - "${DB_HOST_PORT:-5433}:5432" # 5433 on the host: avoids clashing with a local Postgres
+    volumes:
+      - aeolus_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "${REDIS_HOST_PORT:-6379}:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  api:
+    <<: *app
+    command: >
+      sh -c "alembic upgrade head &&
+             uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload --reload-dir app"
+    ports:
+      - "${API_HOST_PORT:-8000}:8000"
+
+  worker:
+    <<: *app
+    command: celery -A app.worker.celery_app worker --loglevel=INFO --concurrency=1
+    # The worker starts even if the API is down; it only needs db + redis.
+
+volumes:
+  aeolus_pgdata:
+  aeolus_cache:
+  aeolus_models:
+  aeolus_artifacts:
