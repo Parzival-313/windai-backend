@@ -237,6 +237,90 @@
           }
         }
       ]
+    },
+    {
+      "name": "Turbine Classes",
+      "description": "Docs: docs/api/turbines.md. Read-only reference data (g36, g45, g62). Send Login first.",
+      "item": [
+        {
+          "name": "List Turbine Classes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/turbine-classes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "turbine-classes"
+              ]
+            },
+            "description": "All classes, smallest first (g36, g45, g62). Field names are the frontend's MODELS keys."
+          }
+        },
+        {
+          "name": "Get Turbine Class",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/turbine-classes/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "turbine-classes",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "g45"
+                }
+              ]
+            },
+            "description": "One class by id (g36, g45 or g62; case-sensitive). Unknown id -> 404 TURBINE_CLASS_NOT_FOUND."
+          }
+        },
+        {
+          "name": "Get Power Curve",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/turbine-classes/:id/power-curve?step=0.5",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "turbine-classes",
+                ":id",
+                "power-curve"
+              ],
+              "query": [
+                {
+                  "key": "step",
+                  "value": "0.5"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "g45"
+                }
+              ]
+            },
+            "description": "[{speed, powerKw, ct}] from 0 to 30 m/s. step 0.1-5 (default 0.5)."
+          }
+        }
+      ]
     }
   ]
 }

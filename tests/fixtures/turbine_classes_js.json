@@ -1,0 +1,1635 @@
+{
+  "generatedBy": "tests/fixtures/make_turbine_fixture.mjs",
+  "source": "frontend/AeolusAi.html",
+  "sourceSha256": "b301888d8f68c2955cb38c32476a1bc5fdb83a0967a64cdf00b2b1687a1c6eff",
+  "models": {
+    "g36": {
+      "id": "g36",
+      "name": "3.6 MW class",
+      "D": 120,
+      "H": 90,
+      "rated": 3600,
+      "vin": 3,
+      "vr": 11.5,
+      "vout": 25,
+      "rpmMin": 5.5,
+      "rpmMax": 14.9
+    },
+    "g45": {
+      "id": "g45",
+      "name": "4.5 MW class",
+      "D": 145,
+      "H": 105,
+      "rated": 4500,
+      "vin": 3,
+      "vr": 11,
+      "vout": 25,
+      "rpmMin": 4.8,
+      "rpmMax": 12.3
+    },
+    "g62": {
+      "id": "g62",
+      "name": "6.2 MW class",
+      "D": 170,
+      "H": 125,
+      "rated": 6200,
+      "vin": 3,
+      "vr": 10.5,
+      "vout": 25,
+      "rpmMin": 4,
+      "rpmMax": 10.6
+    }
+  },
+  "powerKw": {
+    "g36": [
+      {
+        "speed": -1,
+        "powerKw": 0
+      },
+      {
+        "speed": 0,
+        "powerKw": 0
+      },
+      {
+        "speed": 0.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 0.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 0.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 1,
+        "powerKw": 0
+      },
+      {
+        "speed": 1.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 1.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 1.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 2,
+        "powerKw": 0
+      },
+      {
+        "speed": 2.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 2.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 2.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 2.999999,
+        "powerKw": 0
+      },
+      {
+        "speed": 3,
+        "powerKw": 0
+      },
+      {
+        "speed": 3.000001,
+        "powerKw": 0.00006506570658165124
+      },
+      {
+        "speed": 3.25,
+        "powerKw": 17.659610074470756
+      },
+      {
+        "speed": 3.5,
+        "powerKw": 38.256212869215965
+      },
+      {
+        "speed": 3.75,
+        "powerKw": 62.015730901179815
+      },
+      {
+        "speed": 4,
+        "powerKw": 89.16408668730651
+      },
+      {
+        "speed": 4.25,
+        "powerKw": 119.92720274454021
+      },
+      {
+        "speed": 4.5,
+        "powerKw": 154.5310015898251
+      },
+      {
+        "speed": 4.75,
+        "powerKw": 193.20140574010543
+      },
+      {
+        "speed": 5,
+        "powerKw": 236.16433771232533
+      },
+      {
+        "speed": 5.25,
+        "powerKw": 283.645720023429
+      },
+      {
+        "speed": 5.5,
+        "powerKw": 335.8714751903606
+      },
+      {
+        "speed": 5.75,
+        "powerKw": 393.0675257300644
+      },
+      {
+        "speed": 6,
+        "powerKw": 455.45979415948455
+      },
+      {
+        "speed": 6.25,
+        "powerKw": 523.2742029955652
+      },
+      {
+        "speed": 6.5,
+        "powerKw": 596.7366747552506
+      },
+      {
+        "speed": 6.75,
+        "powerKw": 676.0731319554849
+      },
+      {
+        "speed": 7,
+        "powerKw": 761.5094971132123
+      },
+      {
+        "speed": 7.25,
+        "powerKw": 853.271692745377
+      },
+      {
+        "speed": 7.5,
+        "powerKw": 951.5856413689231
+      },
+      {
+        "speed": 7.75,
+        "powerKw": 1056.6772655007949
+      },
+      {
+        "speed": 8,
+        "powerKw": 1168.7724876579366
+      },
+      {
+        "speed": 8.25,
+        "powerKw": 1288.0972303572923
+      },
+      {
+        "speed": 8.5,
+        "powerKw": 1414.8774161158062
+      },
+      {
+        "speed": 8.75,
+        "powerKw": 1549.3389674504226
+      },
+      {
+        "speed": 9,
+        "powerKw": 1691.7078068780854
+      },
+      {
+        "speed": 9.25,
+        "powerKw": 1842.2098569157392
+      },
+      {
+        "speed": 9.5,
+        "powerKw": 2001.071040080328
+      },
+      {
+        "speed": 9.75,
+        "powerKw": 2168.5172788887958
+      },
+      {
+        "speed": 10,
+        "powerKw": 2344.774495858087
+      },
+      {
+        "speed": 10.25,
+        "powerKw": 2530.068613505146
+      },
+      {
+        "speed": 10.499999,
+        "powerKw": 2724.6247572923535
+      },
+      {
+        "speed": 10.5,
+        "powerKw": 2724.6255543469165
+      },
+      {
+        "speed": 10.500001,
+        "powerKw": 2724.6263514016314
+      },
+      {
+        "speed": 10.75,
+        "powerKw": 2928.671240900343
+      },
+      {
+        "speed": 10.999999,
+        "powerKw": 3142.430720910464
+      },
+      {
+        "speed": 11,
+        "powerKw": 3142.43159568237
+      },
+      {
+        "speed": 11.000001,
+        "powerKw": 3142.432470454434
+      },
+      {
+        "speed": 11.25,
+        "powerKw": 3366.1325412099404
+      },
+      {
+        "speed": 11.499999,
+        "powerKw": 3599.9990438959926
+      },
+      {
+        "speed": 11.5,
+        "powerKw": 3600
+      },
+      {
+        "speed": 11.500001,
+        "powerKw": 3600
+      },
+      {
+        "speed": 11.75,
+        "powerKw": 3600
+      },
+      {
+        "speed": 12,
+        "powerKw": 3600
+      },
+      {
+        "speed": 12.25,
+        "powerKw": 3600
+      },
+      {
+        "speed": 12.5,
+        "powerKw": 3600
+      },
+      {
+        "speed": 12.75,
+        "powerKw": 3600
+      },
+      {
+        "speed": 13,
+        "powerKw": 3600
+      },
+      {
+        "speed": 13.25,
+        "powerKw": 3600
+      },
+      {
+        "speed": 13.5,
+        "powerKw": 3600
+      },
+      {
+        "speed": 13.75,
+        "powerKw": 3600
+      },
+      {
+        "speed": 14,
+        "powerKw": 3600
+      },
+      {
+        "speed": 14.25,
+        "powerKw": 3600
+      },
+      {
+        "speed": 14.5,
+        "powerKw": 3600
+      },
+      {
+        "speed": 14.75,
+        "powerKw": 3600
+      },
+      {
+        "speed": 15,
+        "powerKw": 3600
+      },
+      {
+        "speed": 15.25,
+        "powerKw": 3600
+      },
+      {
+        "speed": 15.5,
+        "powerKw": 3600
+      },
+      {
+        "speed": 15.75,
+        "powerKw": 3600
+      },
+      {
+        "speed": 16,
+        "powerKw": 3600
+      },
+      {
+        "speed": 16.25,
+        "powerKw": 3600
+      },
+      {
+        "speed": 16.5,
+        "powerKw": 3600
+      },
+      {
+        "speed": 16.75,
+        "powerKw": 3600
+      },
+      {
+        "speed": 17,
+        "powerKw": 3600
+      },
+      {
+        "speed": 17.25,
+        "powerKw": 3600
+      },
+      {
+        "speed": 17.5,
+        "powerKw": 3600
+      },
+      {
+        "speed": 17.75,
+        "powerKw": 3600
+      },
+      {
+        "speed": 18,
+        "powerKw": 3600
+      },
+      {
+        "speed": 18.25,
+        "powerKw": 3600
+      },
+      {
+        "speed": 18.5,
+        "powerKw": 3600
+      },
+      {
+        "speed": 18.75,
+        "powerKw": 3600
+      },
+      {
+        "speed": 19,
+        "powerKw": 3600
+      },
+      {
+        "speed": 19.25,
+        "powerKw": 3600
+      },
+      {
+        "speed": 19.5,
+        "powerKw": 3600
+      },
+      {
+        "speed": 19.75,
+        "powerKw": 3600
+      },
+      {
+        "speed": 20,
+        "powerKw": 3600
+      },
+      {
+        "speed": 20.25,
+        "powerKw": 3600
+      },
+      {
+        "speed": 20.5,
+        "powerKw": 3600
+      },
+      {
+        "speed": 20.75,
+        "powerKw": 3600
+      },
+      {
+        "speed": 21,
+        "powerKw": 3600
+      },
+      {
+        "speed": 21.25,
+        "powerKw": 3600
+      },
+      {
+        "speed": 21.5,
+        "powerKw": 3600
+      },
+      {
+        "speed": 21.75,
+        "powerKw": 3600
+      },
+      {
+        "speed": 22,
+        "powerKw": 3600
+      },
+      {
+        "speed": 22.25,
+        "powerKw": 3600
+      },
+      {
+        "speed": 22.5,
+        "powerKw": 3600
+      },
+      {
+        "speed": 22.75,
+        "powerKw": 3600
+      },
+      {
+        "speed": 23,
+        "powerKw": 3600
+      },
+      {
+        "speed": 23.25,
+        "powerKw": 3600
+      },
+      {
+        "speed": 23.5,
+        "powerKw": 3600
+      },
+      {
+        "speed": 23.75,
+        "powerKw": 3600
+      },
+      {
+        "speed": 24,
+        "powerKw": 3600
+      },
+      {
+        "speed": 24.25,
+        "powerKw": 3600
+      },
+      {
+        "speed": 24.5,
+        "powerKw": 3600
+      },
+      {
+        "speed": 24.75,
+        "powerKw": 3600
+      },
+      {
+        "speed": 24.999999,
+        "powerKw": 3600
+      },
+      {
+        "speed": 25,
+        "powerKw": 0
+      },
+      {
+        "speed": 25.000001,
+        "powerKw": 0
+      },
+      {
+        "speed": 25.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 25.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 25.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 26,
+        "powerKw": 0
+      },
+      {
+        "speed": 26.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 26.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 26.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 27,
+        "powerKw": 0
+      },
+      {
+        "speed": 27.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 27.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 27.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 28,
+        "powerKw": 0
+      },
+      {
+        "speed": 28.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 28.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 28.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 29,
+        "powerKw": 0
+      },
+      {
+        "speed": 29.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 29.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 29.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 30,
+        "powerKw": 0
+      }
+    ],
+    "g45": [
+      {
+        "speed": -1,
+        "powerKw": 0
+      },
+      {
+        "speed": 0,
+        "powerKw": 0
+      },
+      {
+        "speed": 0.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 0.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 0.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 1,
+        "powerKw": 0
+      },
+      {
+        "speed": 1.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 1.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 1.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 2,
+        "powerKw": 0
+      },
+      {
+        "speed": 2.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 2.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 2.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 2.999999,
+        "powerKw": 0
+      },
+      {
+        "speed": 3,
+        "powerKw": 0
+      },
+      {
+        "speed": 3.000001,
+        "powerKw": 0.00009317487770289901
+      },
+      {
+        "speed": 3.25,
+        "powerKw": 25.288774923312882
+      },
+      {
+        "speed": 3.5,
+        "powerKw": 54.78335889570552
+      },
+      {
+        "speed": 3.75,
+        "powerKw": 88.80727569018404
+      },
+      {
+        "speed": 4,
+        "powerKw": 127.6840490797546
+      },
+      {
+        "speed": 4.25,
+        "powerKw": 171.73720283742333
+      },
+      {
+        "speed": 4.5,
+        "powerKw": 221.29026073619633
+      },
+      {
+        "speed": 4.75,
+        "powerKw": 276.66674654907973
+      },
+      {
+        "speed": 5,
+        "powerKw": 338.19018404907973
+      },
+      {
+        "speed": 5.25,
+        "powerKw": 406.18409700920245
+      },
+      {
+        "speed": 5.5,
+        "powerKw": 480.972009202454
+      },
+      {
+        "speed": 5.75,
+        "powerKw": 562.8774444018405
+      },
+      {
+        "speed": 6,
+        "powerKw": 652.2239263803681
+      },
+      {
+        "speed": 6.25,
+        "powerKw": 749.334978911043
+      },
+      {
+        "speed": 6.5,
+        "powerKw": 854.5341257668712
+      },
+      {
+        "speed": 6.75,
+        "powerKw": 968.1448907208589
+      },
+      {
+        "speed": 7,
+        "powerKw": 1090.4907975460123
+      },
+      {
+        "speed": 7.25,
+        "powerKw": 1221.8953700153374
+      },
+      {
+        "speed": 7.5,
+        "powerKw": 1362.6821319018404
+      },
+      {
+        "speed": 7.75,
+        "powerKw": 1513.1746069785277
+      },
+      {
+        "speed": 8,
+        "powerKw": 1673.696319018405
+      },
+      {
+        "speed": 8.25,
+        "powerKw": 1844.5707917944785
+      },
+      {
+        "speed": 8.5,
+        "powerKw": 2026.1215490797547
+      },
+      {
+        "speed": 8.75,
+        "powerKw": 2218.672114647239
+      },
+      {
+        "speed": 9,
+        "powerKw": 2422.5460122699387
+      },
+      {
+        "speed": 9.25,
+        "powerKw": 2638.0667657208587
+      },
+      {
+        "speed": 9.5,
+        "powerKw": 2865.557898773006
+      },
+      {
+        "speed": 9.75,
+        "powerKw": 3105.3429351993864
+      },
+      {
+        "speed": 10,
+        "powerKw": 3357.745398773006
+      },
+      {
+        "speed": 10.25,
+        "powerKw": 3623.088813266871
+      },
+      {
+        "speed": 10.499999,
+        "powerKw": 3901.6955610622263
+      },
+      {
+        "speed": 10.5,
+        "powerKw": 3901.6967024539877
+      },
+      {
+        "speed": 10.500001,
+        "powerKw": 3901.6978438459664
+      },
+      {
+        "speed": 10.75,
+        "powerKw": 4193.892590107362
+      },
+      {
+        "speed": 10.999999,
+        "powerKw": 4499.998747316065
+      },
+      {
+        "speed": 11,
+        "powerKw": 4500
+      },
+      {
+        "speed": 11.000001,
+        "powerKw": 4500
+      },
+      {
+        "speed": 11.25,
+        "powerKw": 4500
+      },
+      {
+        "speed": 11.499999,
+        "powerKw": 4500
+      },
+      {
+        "speed": 11.5,
+        "powerKw": 4500
+      },
+      {
+        "speed": 11.500001,
+        "powerKw": 4500
+      },
+      {
+        "speed": 11.75,
+        "powerKw": 4500
+      },
+      {
+        "speed": 12,
+        "powerKw": 4500
+      },
+      {
+        "speed": 12.25,
+        "powerKw": 4500
+      },
+      {
+        "speed": 12.5,
+        "powerKw": 4500
+      },
+      {
+        "speed": 12.75,
+        "powerKw": 4500
+      },
+      {
+        "speed": 13,
+        "powerKw": 4500
+      },
+      {
+        "speed": 13.25,
+        "powerKw": 4500
+      },
+      {
+        "speed": 13.5,
+        "powerKw": 4500
+      },
+      {
+        "speed": 13.75,
+        "powerKw": 4500
+      },
+      {
+        "speed": 14,
+        "powerKw": 4500
+      },
+      {
+        "speed": 14.25,
+        "powerKw": 4500
+      },
+      {
+        "speed": 14.5,
+        "powerKw": 4500
+      },
+      {
+        "speed": 14.75,
+        "powerKw": 4500
+      },
+      {
+        "speed": 15,
+        "powerKw": 4500
+      },
+      {
+        "speed": 15.25,
+        "powerKw": 4500
+      },
+      {
+        "speed": 15.5,
+        "powerKw": 4500
+      },
+      {
+        "speed": 15.75,
+        "powerKw": 4500
+      },
+      {
+        "speed": 16,
+        "powerKw": 4500
+      },
+      {
+        "speed": 16.25,
+        "powerKw": 4500
+      },
+      {
+        "speed": 16.5,
+        "powerKw": 4500
+      },
+      {
+        "speed": 16.75,
+        "powerKw": 4500
+      },
+      {
+        "speed": 17,
+        "powerKw": 4500
+      },
+      {
+        "speed": 17.25,
+        "powerKw": 4500
+      },
+      {
+        "speed": 17.5,
+        "powerKw": 4500
+      },
+      {
+        "speed": 17.75,
+        "powerKw": 4500
+      },
+      {
+        "speed": 18,
+        "powerKw": 4500
+      },
+      {
+        "speed": 18.25,
+        "powerKw": 4500
+      },
+      {
+        "speed": 18.5,
+        "powerKw": 4500
+      },
+      {
+        "speed": 18.75,
+        "powerKw": 4500
+      },
+      {
+        "speed": 19,
+        "powerKw": 4500
+      },
+      {
+        "speed": 19.25,
+        "powerKw": 4500
+      },
+      {
+        "speed": 19.5,
+        "powerKw": 4500
+      },
+      {
+        "speed": 19.75,
+        "powerKw": 4500
+      },
+      {
+        "speed": 20,
+        "powerKw": 4500
+      },
+      {
+        "speed": 20.25,
+        "powerKw": 4500
+      },
+      {
+        "speed": 20.5,
+        "powerKw": 4500
+      },
+      {
+        "speed": 20.75,
+        "powerKw": 4500
+      },
+      {
+        "speed": 21,
+        "powerKw": 4500
+      },
+      {
+        "speed": 21.25,
+        "powerKw": 4500
+      },
+      {
+        "speed": 21.5,
+        "powerKw": 4500
+      },
+      {
+        "speed": 21.75,
+        "powerKw": 4500
+      },
+      {
+        "speed": 22,
+        "powerKw": 4500
+      },
+      {
+        "speed": 22.25,
+        "powerKw": 4500
+      },
+      {
+        "speed": 22.5,
+        "powerKw": 4500
+      },
+      {
+        "speed": 22.75,
+        "powerKw": 4500
+      },
+      {
+        "speed": 23,
+        "powerKw": 4500
+      },
+      {
+        "speed": 23.25,
+        "powerKw": 4500
+      },
+      {
+        "speed": 23.5,
+        "powerKw": 4500
+      },
+      {
+        "speed": 23.75,
+        "powerKw": 4500
+      },
+      {
+        "speed": 24,
+        "powerKw": 4500
+      },
+      {
+        "speed": 24.25,
+        "powerKw": 4500
+      },
+      {
+        "speed": 24.5,
+        "powerKw": 4500
+      },
+      {
+        "speed": 24.75,
+        "powerKw": 4500
+      },
+      {
+        "speed": 24.999999,
+        "powerKw": 4500
+      },
+      {
+        "speed": 25,
+        "powerKw": 0
+      },
+      {
+        "speed": 25.000001,
+        "powerKw": 0
+      },
+      {
+        "speed": 25.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 25.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 25.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 26,
+        "powerKw": 0
+      },
+      {
+        "speed": 26.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 26.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 26.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 27,
+        "powerKw": 0
+      },
+      {
+        "speed": 27.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 27.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 27.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 28,
+        "powerKw": 0
+      },
+      {
+        "speed": 28.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 28.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 28.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 29,
+        "powerKw": 0
+      },
+      {
+        "speed": 29.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 29.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 29.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 30,
+        "powerKw": 0
+      }
+    ],
+    "g62": [
+      {
+        "speed": -1,
+        "powerKw": 0
+      },
+      {
+        "speed": 0,
+        "powerKw": 0
+      },
+      {
+        "speed": 0.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 0.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 0.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 1,
+        "powerKw": 0
+      },
+      {
+        "speed": 1.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 1.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 1.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 2,
+        "powerKw": 0
+      },
+      {
+        "speed": 2.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 2.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 2.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 2.999999,
+        "powerKw": 0
+      },
+      {
+        "speed": 3,
+        "powerKw": 0
+      },
+      {
+        "speed": 3.000001,
+        "powerKw": 0.00014805975087572466
+      },
+      {
+        "speed": 3.25,
+        "powerKw": 40.18518518518518
+      },
+      {
+        "speed": 3.5,
+        "powerKw": 87.05362078496407
+      },
+      {
+        "speed": 3.75,
+        "powerKw": 141.11940298507463
+      },
+      {
+        "speed": 4,
+        "powerKw": 202.89662797125484
+      },
+      {
+        "speed": 4.25,
+        "powerKw": 272.89939192924265
+      },
+      {
+        "speed": 4.5,
+        "powerKw": 351.64179104477614
+      },
+      {
+        "speed": 4.75,
+        "powerKw": 439.63792150359313
+      },
+      {
+        "speed": 5,
+        "powerKw": 537.4018794914317
+      },
+      {
+        "speed": 5.25,
+        "powerKw": 645.4477611940298
+      },
+      {
+        "speed": 5.5,
+        "powerKw": 764.2896627971255
+      },
+      {
+        "speed": 5.75,
+        "powerKw": 894.4416804864566
+      },
+      {
+        "speed": 6,
+        "powerKw": 1036.4179104477612
+      },
+      {
+        "speed": 6.25,
+        "powerKw": 1190.7324488667773
+      },
+      {
+        "speed": 6.5,
+        "powerKw": 1357.8993919292427
+      },
+      {
+        "speed": 6.75,
+        "powerKw": 1538.4328358208954
+      },
+      {
+        "speed": 7,
+        "powerKw": 1732.8468767274737
+      },
+      {
+        "speed": 7.25,
+        "powerKw": 1941.6556108347154
+      },
+      {
+        "speed": 7.5,
+        "powerKw": 2165.373134328358
+      },
+      {
+        "speed": 7.75,
+        "powerKw": 2404.5135433941405
+      },
+      {
+        "speed": 8,
+        "powerKw": 2659.5909342177997
+      },
+      {
+        "speed": 8.25,
+        "powerKw": 2931.1194029850744
+      },
+      {
+        "speed": 8.5,
+        "powerKw": 3219.6130458817024
+      },
+      {
+        "speed": 8.75,
+        "powerKw": 3525.585959093422
+      },
+      {
+        "speed": 9,
+        "powerKw": 3849.5522388059703
+      },
+      {
+        "speed": 9.25,
+        "powerKw": 4192.025981205085
+      },
+      {
+        "speed": 9.5,
+        "powerKw": 4553.521282476507
+      },
+      {
+        "speed": 9.75,
+        "powerKw": 4934.55223880597
+      },
+      {
+        "speed": 10,
+        "powerKw": 5335.632946379215
+      },
+      {
+        "speed": 10.25,
+        "powerKw": 5757.277501381979
+      },
+      {
+        "speed": 10.499999,
+        "powerKw": 6199.998186268831
+      },
+      {
+        "speed": 10.5,
+        "powerKw": 6200
+      },
+      {
+        "speed": 10.500001,
+        "powerKw": 6200
+      },
+      {
+        "speed": 10.75,
+        "powerKw": 6200
+      },
+      {
+        "speed": 10.999999,
+        "powerKw": 6200
+      },
+      {
+        "speed": 11,
+        "powerKw": 6200
+      },
+      {
+        "speed": 11.000001,
+        "powerKw": 6200
+      },
+      {
+        "speed": 11.25,
+        "powerKw": 6200
+      },
+      {
+        "speed": 11.499999,
+        "powerKw": 6200
+      },
+      {
+        "speed": 11.5,
+        "powerKw": 6200
+      },
+      {
+        "speed": 11.500001,
+        "powerKw": 6200
+      },
+      {
+        "speed": 11.75,
+        "powerKw": 6200
+      },
+      {
+        "speed": 12,
+        "powerKw": 6200
+      },
+      {
+        "speed": 12.25,
+        "powerKw": 6200
+      },
+      {
+        "speed": 12.5,
+        "powerKw": 6200
+      },
+      {
+        "speed": 12.75,
+        "powerKw": 6200
+      },
+      {
+        "speed": 13,
+        "powerKw": 6200
+      },
+      {
+        "speed": 13.25,
+        "powerKw": 6200
+      },
+      {
+        "speed": 13.5,
+        "powerKw": 6200
+      },
+      {
+        "speed": 13.75,
+        "powerKw": 6200
+      },
+      {
+        "speed": 14,
+        "powerKw": 6200
+      },
+      {
+        "speed": 14.25,
+        "powerKw": 6200
+      },
+      {
+        "speed": 14.5,
+        "powerKw": 6200
+      },
+      {
+        "speed": 14.75,
+        "powerKw": 6200
+      },
+      {
+        "speed": 15,
+        "powerKw": 6200
+      },
+      {
+        "speed": 15.25,
+        "powerKw": 6200
+      },
+      {
+        "speed": 15.5,
+        "powerKw": 6200
+      },
+      {
+        "speed": 15.75,
+        "powerKw": 6200
+      },
+      {
+        "speed": 16,
+        "powerKw": 6200
+      },
+      {
+        "speed": 16.25,
+        "powerKw": 6200
+      },
+      {
+        "speed": 16.5,
+        "powerKw": 6200
+      },
+      {
+        "speed": 16.75,
+        "powerKw": 6200
+      },
+      {
+        "speed": 17,
+        "powerKw": 6200
+      },
+      {
+        "speed": 17.25,
+        "powerKw": 6200
+      },
+      {
+        "speed": 17.5,
+        "powerKw": 6200
+      },
+      {
+        "speed": 17.75,
+        "powerKw": 6200
+      },
+      {
+        "speed": 18,
+        "powerKw": 6200
+      },
+      {
+        "speed": 18.25,
+        "powerKw": 6200
+      },
+      {
+        "speed": 18.5,
+        "powerKw": 6200
+      },
+      {
+        "speed": 18.75,
+        "powerKw": 6200
+      },
+      {
+        "speed": 19,
+        "powerKw": 6200
+      },
+      {
+        "speed": 19.25,
+        "powerKw": 6200
+      },
+      {
+        "speed": 19.5,
+        "powerKw": 6200
+      },
+      {
+        "speed": 19.75,
+        "powerKw": 6200
+      },
+      {
+        "speed": 20,
+        "powerKw": 6200
+      },
+      {
+        "speed": 20.25,
+        "powerKw": 6200
+      },
+      {
+        "speed": 20.5,
+        "powerKw": 6200
+      },
+      {
+        "speed": 20.75,
+        "powerKw": 6200
+      },
+      {
+        "speed": 21,
+        "powerKw": 6200
+      },
+      {
+        "speed": 21.25,
+        "powerKw": 6200
+      },
+      {
+        "speed": 21.5,
+        "powerKw": 6200
+      },
+      {
+        "speed": 21.75,
+        "powerKw": 6200
+      },
+      {
+        "speed": 22,
+        "powerKw": 6200
+      },
+      {
+        "speed": 22.25,
+        "powerKw": 6200
+      },
+      {
+        "speed": 22.5,
+        "powerKw": 6200
+      },
+      {
+        "speed": 22.75,
+        "powerKw": 6200
+      },
+      {
+        "speed": 23,
+        "powerKw": 6200
+      },
+      {
+        "speed": 23.25,
+        "powerKw": 6200
+      },
+      {
+        "speed": 23.5,
+        "powerKw": 6200
+      },
+      {
+        "speed": 23.75,
+        "powerKw": 6200
+      },
+      {
+        "speed": 24,
+        "powerKw": 6200
+      },
+      {
+        "speed": 24.25,
+        "powerKw": 6200
+      },
+      {
+        "speed": 24.5,
+        "powerKw": 6200
+      },
+      {
+        "speed": 24.75,
+        "powerKw": 6200
+      },
+      {
+        "speed": 24.999999,
+        "powerKw": 6200
+      },
+      {
+        "speed": 25,
+        "powerKw": 0
+      },
+      {
+        "speed": 25.000001,
+        "powerKw": 0
+      },
+      {
+        "speed": 25.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 25.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 25.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 26,
+        "powerKw": 0
+      },
+      {
+        "speed": 26.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 26.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 26.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 27,
+        "powerKw": 0
+      },
+      {
+        "speed": 27.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 27.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 27.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 28,
+        "powerKw": 0
+      },
+      {
+        "speed": 28.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 28.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 28.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 29,
+        "powerKw": 0
+      },
+      {
+        "speed": 29.25,
+        "powerKw": 0
+      },
+      {
+        "speed": 29.5,
+        "powerKw": 0
+      },
+      {
+        "speed": 29.75,
+        "powerKw": 0
+      },
+      {
+        "speed": 30,
+        "powerKw": 0
+      }
+    ]
+  }
+}
