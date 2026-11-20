@@ -37,12 +37,39 @@ FastAPI · PostgreSQL 16 + PostGIS · SQLAlchemy 2 + Alembic · Celery + Redis �
 
 3. Stop: `docker compose down` (add `-v` to also wipe the database volume).
 
+### Database: local Docker or Neon
+
+`DATABASE_URL` in `.env` decides:
+
+- **empty** → the local `db` container (default; use this for development and tests)
+- **a hosted URL** → e.g. Neon: copy *Connection string* (pooling off) and paste it as one line:
+  `DATABASE_URL=postgresql://USER:PASSWORD@ep-xxxx.REGION.aws.neon.tech/neondb?sslmode=require`
+
+Then restart: `docker compose up -d --force-recreate api worker`. Migrations (incl. PostGIS)
+run on API start; `GET /health` shows `db: ok` when connected.
+
 Host ports: API `8000`, Postgres `5433` (not 5432, to avoid a local Postgres), Redis `6379`.
 Change them in `.env` (`API_HOST_PORT`, `DB_HOST_PORT`, `REDIS_HOST_PORT`).
 
+## Admin user (single user, no sign-up)
+
+Create it once, interactively (the password is never echoed or passed as a flag):
+
+```powershell
+docker compose exec api python -m app.cli create-admin
+```
+
+Forgot the password? `docker compose exec api python -m app.cli create-admin --reset-password`
+(also logs out every device). Alternative for a fresh Docker setup: set `ADMIN_EMAIL` and
+`ADMIN_PASSWORD` in `.env`; the API creates the admin on start if none exists — then delete
+`ADMIN_PASSWORD` from `.env`.
+
+Log in with `POST /api/v1/auth/login`, then use the `accessToken` as `Authorization: Bearer …`
+(Swagger: **Authorize** button).
+
 ## Manual testing with Postman
 
-Import both files from [postman/](postman/):
+Import both files from [docs/postman/](docs/postman/):
 
 - `AEOLUS.postman_collection.json` — one folder per build step
 - `AEOLUS.local.postman_environment.json` — select the **AEOLUS local** environment
@@ -52,6 +79,10 @@ Import both files from [postman/](postman/):
 ```powershell
 docker compose run --rm api pytest
 ```
+
+Tests always use a separate local database, `<POSTGRES_DB>_test` in the `db` container
+(`TEST_DATABASE_URL`, set by compose) — never `DATABASE_URL`/Neon. It is created and
+migrated automatically, and emptied before each DB test.
 
 Lint:
 
@@ -72,11 +103,12 @@ docker compose run --rm api alembic revision --autogenerate -m "describe change"
 ## Layout
 
 ```
-app/        main.py · core/ · db/ · models/ · schemas/ · api/ · services/ · physics/ · data/ · ml/ · worker/ · reports/
-alembic/    migrations
-tests/      pytest
-postman/    Postman collection + environment
-frontend/   AeolusAi.html (reference copy)
-docs/       design documents
-data/       default mount for raw datasets (git-ignored)
+app/           main.py · core/ · db/ · models/ · schemas/ · api/ · services/ · physics/ · data/ · ml/ · worker/ · reports/
+alembic/       migrations
+tests/         pytest
+docs/          design documents, PROGRESS.md
+docs/api/      one markdown per API domain (endpoints, errors, manual-test steps)
+docs/postman/  Postman collection + environment
+frontend/      AeolusAi.html (reference copy)
+data/          default mount for raw datasets (git-ignored)
 ```

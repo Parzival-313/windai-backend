@@ -31,6 +31,7 @@ class AppError(Exception):
         code: str | None = None,
         status_code: int | None = None,
         details: dict[str, Any] | None = None,
+        headers: dict[str, str] | None = None,
     ) -> None:
         super().__init__(message)
         self.message = message
@@ -39,6 +40,7 @@ class AppError(Exception):
         if status_code is not None:
             self.status_code = status_code
         self.details = details or {}
+        self.headers = headers
 
 
 class NotFoundError(AppError):
@@ -52,8 +54,14 @@ class ConflictError(AppError):
 
 
 class UnauthorizedError(AppError):
+    """401. Always carries `WWW-Authenticate: Bearer` (RFC 6750)."""
+
     status_code = 401
     code = "UNAUTHORIZED"
+
+    def __init__(self, message: str, **kwargs: Any) -> None:
+        kwargs.setdefault("headers", {"WWW-Authenticate": "Bearer"})
+        super().__init__(message, **kwargs)
 
 
 class ForbiddenError(AppError):
@@ -78,7 +86,11 @@ _HTTP_CODES = {
 
 
 async def _app_error(_: Request, exc: AppError) -> JSONResponse:
-    return JSONResponse(error_body(exc.code, exc.message, exc.details), status_code=exc.status_code)
+    return JSONResponse(
+        error_body(exc.code, exc.message, exc.details),
+        status_code=exc.status_code,
+        headers=exc.headers,
+    )
 
 
 async def _http_error(_: Request, exc: StarletteHTTPException) -> JSONResponse:

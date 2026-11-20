@@ -11,12 +11,16 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from slowapi.errors import RateLimitExceeded
 
 from app import __version__
-from app.api.routers import health
+from app.api.routers import auth, health
 from app.core.config import get_settings
 from app.core.errors import register_error_handlers
 from app.core.logging import configure_logging, request_id_var
+from app.core.rate_limit import limiter, rate_limit_exceeded_handler
+from app.db.session import get_sessionmaker
+from app.services import auth_service
 
 logger = logging.getLogger("app")
 
@@ -28,6 +32,10 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     # Startup code goes before `yield`, shutdown code after it.
     settings = get_settings()
     logger.info("api starting", extra={"version": __version__, "env": settings.environment})
+    if settings.admin_email and settings.admin_password:
+        # First-start bootstrap. Migrations have already run (`alembic upgrade head`).
+        with get_sessionmaker()() as db:
+            auth_service.bootstrap_admin(db, settings)
     yield
     logger.info("api stopping")
 
@@ -44,6 +52,8 @@ def create_app() -> FastAPI:
     )
 
     register_error_handlers(app)
+    app.state.limiter = limiter  # slowapi looks the limiter up here
+    app.add_exception_handler(RateLimitExceeded, rate_limit_exceeded_handler)  # type: ignore[arg-type]
 
     app.add_middleware(
         CORSMiddleware,
@@ -77,7 +87,7 @@ def create_app() -> FastAPI:
         return response
 
     app.include_router(health.router)
-    # Domain routers are mounted under API_PREFIX from Step 1 onwards.
+    app.include_router(auth.router, prefix=API_PREFIX)
 
     return app
 

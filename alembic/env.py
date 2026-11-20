@@ -16,6 +16,7 @@ import app.models  # noqa: F401  - registers every model on Base.metadata
 from alembic import context
 from app.core.config import get_settings
 from app.db.base import Base
+from app.db.migrations import include_name, include_object
 
 config = context.config
 if config.config_file_name is not None:
@@ -24,22 +25,6 @@ if config.config_file_name is not None:
 config.set_main_option("sqlalchemy.url", get_settings().database_url.replace("%", "%%"))
 
 target_metadata = Base.metadata
-
-# Tables owned by PostGIS (the postgis/postgis image also installs tiger/topology
-# schemas). Autogenerate must never try to drop them.
-POSTGIS_TABLES = {"spatial_ref_sys"}
-
-
-def include_name(name: str | None, type_: str, parent_names: dict) -> bool:
-    if type_ == "schema":
-        return name in (None, "public")
-    return True
-
-
-def include_object(obj, name, type_, reflected, compare_to) -> bool:  # type: ignore[no-untyped-def]
-    if type_ == "table" and name in POSTGIS_TABLES:
-        return False
-    return alembic_helpers.include_object(obj, name, type_, reflected, compare_to)
 
 
 def _configure(**kwargs) -> None:  # type: ignore[no-untyped-def]

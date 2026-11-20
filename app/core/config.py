@@ -24,10 +24,13 @@ class Settings(BaseSettings):
     database_url: str = "postgresql+psycopg://aeolus:aeolus@localhost:5433/aeolus"
     redis_url: str = "redis://localhost:6379/0"
 
-    # Auth (used from Step 1). Required now so a misconfigured deployment fails fast.
+    # Auth. JWT_SECRET is required so a misconfigured deployment fails fast.
     jwt_secret: SecretStr = Field(min_length=32)
     access_token_minutes: int = Field(default=30, ge=1, le=24 * 60)
     refresh_token_days: int = Field(default=7, ge=1, le=90)
+    # slowapi / `limits` syntax, applied per client IP to login and change-password.
+    login_rate_limit: str = "5/minute"
+    # Optional first-start bootstrap: used only while the user table is empty.
     admin_email: str | None = None
     admin_password: SecretStr | None = None
 
@@ -47,6 +50,14 @@ class Settings(BaseSettings):
             value = [part.strip() for part in value.split(",") if part.strip()]
         if isinstance(value, list) and "*" in value:
             raise ValueError("CORS_ORIGINS must list explicit origins; '*' is not allowed")
+        return value
+
+    @field_validator("admin_email", "admin_password", mode="before")
+    @classmethod
+    def _blank_is_none(cls, value: object) -> object:
+        # `ADMIN_EMAIL=` in .env arrives as "" — treat it as "not set".
+        if isinstance(value, str) and not value.strip():
+            return None
         return value
 
     @field_validator("database_url")
