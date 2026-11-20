@@ -18,8 +18,12 @@ dependencies = [
     # Jobs
     "celery[redis]>=5.4",
     "redis>=5.2",
+    # Auth (Step 1)
+    "pwdlib[argon2]>=0.2.1",
+    "pyjwt>=2.10",
+    "slowapi>=0.1.9",
 ]
-# Science, ML, auth and report libraries are added in the step that first needs them.
+# Science, ML and report libraries are added in the step that first needs them.
 
 [dependency-groups]
 dev = [
