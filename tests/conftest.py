@@ -99,8 +99,14 @@ def test_database() -> str:
 
 @pytest.fixture
 def db(test_database):
-    """A session on a freshly emptied test database."""
-    tables = ", ".join(f'"{t.name}"' for t in Base.metadata.sorted_tables)
+    """A session on a freshly emptied test database.
+
+    Tables marked `info={"seeded": True}` (reference data inserted by migrations, e.g.
+    `turbine_classes`) are kept: nothing in the tests re-creates them.
+    """
+    tables = ", ".join(
+        f'"{t.name}"' for t in Base.metadata.sorted_tables if not t.info.get("seeded")
+    )
     session = get_sessionmaker()()
     session.execute(text(f"TRUNCATE {tables} RESTART IDENTITY CASCADE"))
     session.commit()
